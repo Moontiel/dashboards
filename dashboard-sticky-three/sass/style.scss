@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+    tag-body: es importante definir un color de fondo
+    cuando trabajamos con dashboards que implementen
+    position: sticky
+*/
+body {
+    background-color: #ccc;
+}
+
+/*
+    header: definimos position: fixed y sus propiedades
+    top, left, right y z-index para fijar y posicionar este
+    elemento
+*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: magenta;
+    color: #fff;
+    height: 80px;
+    box-shadow: 0 2px 5px #0000004d
+}
+
+/*
+    tag-main: definimos un margen en la parte superior para
+    solucionar el problema que genera position: fixed
+*/
+main {
+    margin-top: 80px;
+    
+    /*
+        main_container
+    */
+    .main_container {
+        /*
+            dashboard_flexbox: definimos flexbox para poner en 
+            linea los elementos que este contiene
+        */
+        .dashboard_flexbox {
+            display: flex;
+    
+            /*
+                dashboard_navbar: definimos position: sticky con sus 
+                propiedades top y left para fijar este elemento a partir 
+                de los 80px, finalmente es importante definir un
+                max-height: 0 a este elemento para que funcione
+            */
+            .dashboard_navbar {
+                position: sticky;
+                top: 80px;
+                left: 0;
+                max-height: 0;
+    
+                /*
+                    tag-ul
+                */
+                ul {
+                    transition: all .3s;
+    
+                    /*
+                        @media 499px <== : definimos el ancho a 0 para remover 
+                        el menu de navegación, finalmente la propiedad 
+                        overflow-x: hidden para ocultar los elementos que 
+                        este contiene en esta medida
+                    */
+                    @media (max-width: 499px) {
+                        width: 0;
+                        overflow-x: hidden;
+
+                        /*
+                            js_close_menu: clase añadida con javascript,
+                            definimos el ancho a 130px para hacer nuevamente
+                            visible el menu de navegación
+                        */
+                        &.js_close_menu {
+                            width: 130px;
+                        }
+                    }
+
+                    /*
+                        @media 500px ==> : definimos un ancho de 260px para el
+                        menu de navegación en esta medida
+                    */
+                    @media (min-width: 500px) {
+                        width: 260px;
+    
+                        /*
+                            js_close_menu: clase añadida con javascript,
+                            definimos el ancho a 0 para ocultar el menu de
+                            navegación, finalmente la propiedad 
+                            overflow-x: hidden para ocultar los elementos que 
+                            este contiene en esta medida
+                        */
+                        &.js_close_menu {
+                            width: 0;
+                            overflow-x: hidden;
+                        }
+                    }
+                }
+            }
+    
+            /*
+                dashboard_components: definimos flex: 1 para que este
+                elemento tome todo el espacio generado por flexbox
+            */
+            .dashboard_components {
+                flex: 1;
+                background-color: #fff;
+                color: #fff;
+                padding: 16px 18px;
+    
+                /*
+                    components: definimos una altura para todos
+                    los componentes
+                */
+                .components {
+                    height: 160px;
+                }
+    
+                .component_one {
+                    background-color: gray;
+                }
+    
+                .component_two {
+                    background-color: olive;
+                }
+    
+                .component_thr {
+                    background-color: orange;
+                }
+    
+                .component_for {
+                    background-color: gray;
+                }
+    
+                .component_fiv {
+                    background-color: plum;
+                }
+
+                footer {
+                    background-color: lightseagreen;
+                }
+            }
+
+            /*
+                dashboard_aside: definimos position: sticky con sus 
+                propiedades top y right para fijar este elemento a partir 
+                de los 80px, finalmente es importante definir un
+                max-height: 0 a este elemento para que funcione y pueda
+                recibir margenes y espaciados
+            */
+            .dashboard_aside {
+                position: sticky;
+                top: 80px;
+                right: 0;
+                max-height: 0;
+                padding: 14px;
+                
+                /*
+                    tag-p
+                */
+                p {
+                    width: 220px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}

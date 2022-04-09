@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+    header: definimos position: fixed y sus propiedades
+    top, left, right y z-index para fijar y posicionar este
+    elemento
+*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: magenta;
+    color: #fff;
+    height: 80px;
+    box-shadow: 0 2px 5px #0000004d
+}
+
+/*
+    tag-main: definimos un margen en la parte superior para
+    solucionar el problema que genera position: fixed
+*/
+main {
+    margin-top: 80px;
+    /*
+        main_container
+    */
+    .main_container {
+        /*
+            dashboard_flexbox
+        */
+        .dashboard_flexbox {
+            /*
+                dashboard_navbar: definimos position: fixed y sus propiedades
+                top, left, bottom y z-index para fijar y posicionar este
+                elemento
+            */
+            .dashboard_navbar {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                bottom: 0;
+                z-index: 999;
+                background-color: yellow;
+    
+                /*
+                    tag-ul
+                */
+                ul {
+                    transition: width .3s;
+    
+                    /*
+                        @media 499px <== : definimos el ancho a 0 para remover 
+                        el menu de navegación, finalmente la propiedad 
+                        overflow-x: hidden para ocultar los elementos que 
+                        este contiene en esta medida
+                    */
+                    @media (max-width: 499px) {
+                        width: 0;
+                        overflow-x: hidden;
+
+                        /*
+                            js_close_menu: clase añadida con javascript,
+                            definimos el ancho a 220px para hacer nuevamente
+                            visible el menu de navegación
+                        */
+                        &.js_close_menu {
+                            width: 220px;
+                        }
+                    }
+
+                    /*
+                        @media 500px ==> : definimos un ancho de 260px para el
+                        menu de navegación en esta medida
+                    */
+                    @media (min-width: 500px) {
+                        width: 260px;
+    
+                        /*
+                            js_close_menu: clase añadida con javascript,
+                            definimos el ancho a 0 para ocultar el menu de
+                            navegación, finalmente la propiedad 
+                            overflow-x: hidden para ocultar los elementos que 
+                            este contiene en esta medida
+                        */
+                        &.js_close_menu {
+                            width: 0;
+                            overflow-x: hidden;
+                        }
+                    }
+                }
+            }
+    
+            /*
+                dashboard_components
+            */
+            .dashboard_components {
+                background-color: white;
+                color: #fff;
+                padding: 16px 18px;
+
+                /*
+                    @media 500px ==> : definimos position: absolute y su
+                    propiedad left para posicionar este elemento, importante
+                    definir un ancho calculado en referencia al ancho con 
+                    padding de dashboard_navbar y dashboard_aside
+                */
+                @media (min-width: 500px) {
+                    position: absolute;
+                    left: 260px;
+                    width: calc(100% - 508px);
+                    transition: all .3s;
+                    
+                    /*
+                        js_resize_components: clase añadida con javascript,
+                        definimos left: 0 para desplazar este elemento a
+                        su posición original, finalmente un ancho calculado 
+                        en referencia al ancho con padding de dashboard_aside 
+                        para que tome el ancho total del viewport en esta medida
+                    */
+                    &.js_resize_components {
+                        left: 0;
+                        width: calc(100% - 248px);
+                    }
+                }
+    
+                /*
+                    components: definimos una altura para todos
+                    los componentes
+                */
+                .components {
+                    height: 160px;
+                }
+    
+                .component_one {
+                    background-color: gray;
+                }
+    
+                .component_two {
+                    background-color: olive;
+                }
+    
+                .component_thr {
+                    background-color: orange;
+                }
+    
+                .component_for {
+                    background-color: gray;
+                }
+    
+                .component_fiv {
+                    background-color: plum;
+                }
+
+                footer {
+                    background-color: lightseagreen;
+                }
+            }
+
+            /*
+                dashboard_aside: definimos position: fixed con sus 
+                propiedades top right y bottom para fijar este elemento
+                a partir de los 80px
+            */
+            .dashboard_aside {
+                position: fixed;
+                top: 80px;
+                right: 0;
+                bottom: 0;
+                background-color: violet;
+                padding: 14px;
+                transition: right .3s;
+
+                /*
+                    @media 499px <== : definimos right: -1000% para desplazar 
+                    el aside haciendo que este desaparezca del viewport en
+                    esta medida
+                */
+                @media (max-width: 499px) {
+                    right: -1000%;
+
+                    /*
+                        js_close_aside: clase añadida con javascript,
+                        definimos right: 0 para desplazar este elemento a
+                        su posición original haciendo que este sea visible
+                        nuevamente
+                    */
+                    &.js_show_aside {
+                        right: 0;
+                    }
+                }
+                
+                /*
+                    tag-p
+                */
+                p {
+                    width: 220px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}

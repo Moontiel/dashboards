@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard sticky two</title>
+    <link rel="stylesheet" href="./sass/style.css">
+</head>
+<body>
+    
+    <!--  
+        tag-main: contenedor de la sección
+    -->
+    <main>
+        <!--  
+            main_container: contenedor encargado de manejar el
+            responsive de la sección
+        -->
+        <div class="main_container">
+            <!--  
+                dashboard_flexbox: contenedor definido para implementar
+                flexbox en la sección
+            -->
+            <div class="dashboard_flexbox">
+                <!--  
+                    tag-nav: contenedor de 1 tag-ul
+                -->
+                <nav class="dashboard_navbar">
+                    <!--  
+                        tag-ul: contiene 5 tags-li, le definimos un ID para 
+                        implementar este elemento en javascript
+                    -->
+                    <ul id="ul-navbar">
+                        <!--  
+                            tag-li: en esta definimos los items del menu de 
+                            navegación
+                        -->
+                        <li>item one</li>
+                        <li>item two</li>
+                        <li>item two</li>
+                        <li>item tre</li>
+                        <li>item for</li>
+                    </ul>
+                </nav>
+
+                <!--  
+                    dashboard_components: contenedor de los components
+                -->
+                <div class="dashboard_components">
+                    <!--  
+                        tag-header: contenedor de la sección, le definimos un
+                        id para implementar este elemento en javascript
+                    -->
+                    <header id="header-component">
+                        <a id="icon-menu">Icon Menu</a>
+                    </header>
+
+                    <!--  
+                        components: estos representan cada uno de los 
+                        componentes que forman el sitio web
+                    -->
+                    <div class="components component_one">component_one</div>
+                    
+                    <div class="components component_two">component_two</div>
+                    
+                    <div class="components component_thr">component_thr</div>
+                    
+                    <div class="components component_for">component_for</div>
+                    
+                    <div class="components component_fiv">component_fiv</div>
+                    
+                    <footer class="components">footer</footer>
+                </div>
+            </div>  
+        </div>
+    </main>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
